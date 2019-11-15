@@ -18,10 +18,12 @@ app.use(bodyParser.json());
 //})
 
 //Import Routes
-
 const postsRoute = require('./routes/posts');
+const mesasRoute = require('./routes/mesas');
+
 
 app.use('/posts', postsRoute)
+app.use('/mesas', mesasRoute);
 
 //connect to DB
 mongoose.connect(
