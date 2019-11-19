@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            Seja Bem Vindo
+        </div>
+        <div class="card-body">
+            <form id="Myform">
+                <div class="formMail">
+                    <input type="email" class="form-control" id="email" placeholder="Email: ">
+                </div>
+                <div class="formPassword">
+                    <input type="password" class="form-control" id="password" placeholder="Senha: ">
+                </div>
+            </form>
+            <button id='button-click' type="submit"
+                class="btn btn-primary">Entrar</button>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    $('#button-click').click(function () {
+        $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "http://localhost:3001/api/user/login",
+                success: function (data,status, jqXHR) {
+                   localStorage.setItem('auth_token', data.token);
+                }
+            });
+        
+    })
+
+
+
+    /*/var response = '';
+    $('#button-click').click(function () {
+        response = $.post("http://localhost:3001/api/user/register", {
+            "name": $("#name").val(),
+            "email": $("#email").val(),
+            "password": $("#password").val()
+        })
+
+        alert('Funcionou')
+
+        localStorage.setItem('chavePersistida', JSON.stringify(response));
+
+    });
+    /*/
+
+</script>
+
+</html>
