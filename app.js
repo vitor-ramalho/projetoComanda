@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 const postsRoute = require('./routes/posts');
 const mesasRoute = require('./routes/mesas');
 
-
+  
 app.use('/posts', postsRoute)
 app.use('/mesas', mesasRoute);
 
@@ -31,4 +31,4 @@ mongoose.connect(
     { useUnifiedTopology: true },
     () => console.log('Connected to DB!'))
 //how to we start listening to the server
-app.listen(3000);
+app.listen(3000, () => console.log('Server running on port 3000'))
