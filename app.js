@@ -19,10 +19,12 @@ app.use(bodyParser.json());
 
 //Import Routes
 const postsRoute = require('./routes/posts');
+/**Rota para invocar o método Mesas */
 const mesasRoute = require('./routes/mesas');
 
   
 app.use('/posts', postsRoute)
+/**Callback do método Mesas */
 app.use('/mesas', mesasRoute);
 
 //connect to DB
